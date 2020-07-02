@@ -1,28 +1,52 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to My Vue.js App"/>
+    <p class="title">
+      历史账单
+      <span class="date-range">
+        （{{ dateRange }}）
+      </span>
+    </p>
+    <billing-statistics></billing-statistics>
+    <billing-list></billing-list>
+    <add-bill></add-bill>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import BillingStatistics from './components/billing-statistics.vue';
+import BillingList from './components/billing-list.vue';
+import AddBill from './components/add-bill.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    BillingStatistics,
+    BillingList,
+    AddBill,
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    dateRange() {
+      return '2020.01 - 2020.06';
+    },
   },
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+@import "style/variable.scss";
 #app {
+  width: $page-width;
+  margin: $page-margin-top auto 0;
+  color: $color-gray;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  .title {
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: $color-dark;
+  }
 }
 </style>
