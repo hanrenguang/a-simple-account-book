@@ -40,7 +40,8 @@ module.exports = {
     });
     await queryInterface.bulkInsert('bills', billingList);
   },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('bills', null, {});
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete('bills', null, {});
+    await queryInterface.bulkDelete('categories', null, {});
   },
 };
