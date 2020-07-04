@@ -8,23 +8,27 @@
   },
   "dependencies": {
     "egg": "^2.15.1",
+    "egg-cors": "^2.2.3",
     "egg-scripts": "^2.11.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
+    "cross-env": "^7.0.2",
+    "csv-parser": "^2.3.3",
     "egg-bin": "^4.11.0",
     "egg-ci": "^1.11.0",
     "egg-mock": "^3.21.0",
+    "egg-sequelize": "^5.2.2",
     "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "eslint-config-egg": "^7.1.0",
+    "mysql2": "^2.1.0",
+    "sequelize-cli": "^6.1.0"
   },
   "engines": {
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-simple",
-    "stop": "egg-scripts stop --title=egg-server-simple",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
@@ -32,7 +36,13 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "autod": "autod",
+    "db:create": "npm run devdb:create && npm run testdb:create",
+    "devdb:create": "cross-env NODE_ENV=development npx sequelize db:create",
+    "testdb:create": "cross-env NODE_ENV=test npx sequelize db:create",
+    "db:migrate": "cross-env NODE_ENV=development npx sequelize db:migrate",
+    "db:migrate:undo": "cross-env NODE_ENV=development npx sequelize db:migrate:undo",
+    "db:migrate:undo:all": "cross-env NODE_ENV=development npx sequelize db:migrate:undo:all"
   },
   "ci": {
     "version": "10"
