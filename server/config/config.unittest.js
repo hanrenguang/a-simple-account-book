@@ -7,4 +7,5 @@ exports.sequelize = {
   username: 'root',
   password: '',
   database: 'account-book-test',
+  timezone: '+08:00',
 };

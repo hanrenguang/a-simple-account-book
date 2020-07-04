@@ -36,6 +36,7 @@ module.exports = appInfo => {
       username: 'root',
       password: '',
       database: 'account-book',
+      timezone: '+08:00',
     },
   };
 
