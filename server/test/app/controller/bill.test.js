@@ -3,10 +3,10 @@
 const { app, assert } = require('egg-mock/bootstrap');
 
 describe('test/app/controller/bill.test.js', () => {
-  describe('GET /bill/getBillingList', () => {
+  describe('GET /bill/queryBillingList', () => {
     it('should work', async () => {
       // 只传入分页数据
-      const url1 = '/bill/getBillingList?pageNum=1&pageSize=10';
+      const url1 = '/bill/queryBillingList?pageNum=1&pageSize=10';
       const res1 = await app.httpRequest().get(url1);
       assert(res1.status === 200);
       assert(res1.body.billingList.length === 10);
@@ -31,7 +31,7 @@ describe('test/app/controller/bill.test.js', () => {
       assert(res3.body.count === 0);
 
       // 不传分页数据，报错
-      const url4 = '/bill/getBillingList';
+      const url4 = '/bill/queryBillingList';
       const res4 = await app.httpRequest().get(url4);
       assert(res4.status === 422);
       assert(res4.body.message === 'Invalid param');
@@ -51,7 +51,6 @@ describe('test/app/controller/bill.test.js', () => {
       const startTime = new Date(2019, 6).getTime();
       const endTime = new Date(2019, 6, 31).getTime();
       const url2 = `${url1}?startTime=${startTime}&endTime=${endTime}`;
-      console.log(url2);
       const res2 = await app.httpRequest().get(url2);
       assert(res2.status === 200);
       assert(res2.body.incomeTotal === 31000);
