@@ -1,11 +1,14 @@
 'use strict';
 
+const { mysql } = require('../env.config.js');
+const { host, port, username, password } = mysql;
+
 exports.sequelize = {
   dialect: 'mysql',
-  host: '127.0.0.1',
-  port: 3306,
-  username: 'root',
-  password: '',
+  host,
+  port,
+  username,
+  password,
   database: 'account-book-test',
   timezone: '+08:00',
 };

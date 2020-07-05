@@ -2,6 +2,10 @@
 
 'use strict';
 
+const { mysql, cors } = require('../env.config.js');
+const { host, port, username, password } = mysql;
+const { origin } = cors;
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -21,7 +25,7 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     cors: {
-      origin: 'http://localhost:8080',
+      origin,
       credentials: true,
     },
     security: {
@@ -31,10 +35,10 @@ module.exports = appInfo => {
     },
     sequelize: {
       dialect: 'mysql',
-      host: '127.0.0.1',
-      port: 3306,
-      username: 'root',
-      password: '',
+      host,
+      port,
+      username,
+      password,
       database: 'account-book',
       timezone: '+08:00',
     },
