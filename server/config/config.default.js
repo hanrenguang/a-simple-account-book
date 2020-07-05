@@ -38,6 +38,10 @@ module.exports = appInfo => {
       database: 'account-book',
       timezone: '+08:00',
     },
+    validate: {
+      convert: true,
+      widelyUndefined: true,
+    },
   };
 
   return {

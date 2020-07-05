@@ -5,5 +5,7 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
+  router.get('/bill/getBillingList', controller.bill.index);
+  router.get('/bill/queryTotalAmount', controller.bill.queryTotalAmount);
+  router.post('/bill/createBill', controller.bill.createBill);
 };
