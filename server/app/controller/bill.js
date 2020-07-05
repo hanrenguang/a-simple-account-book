@@ -90,7 +90,7 @@ class HomeController extends Controller {
     const { Bill, Category } = ctx.model;
 
     const paramsScheme = {
-      categoryName: { type: 'string', required: false },
+      categoryId: { type: 'number', required: false },
       type: { type: 'number' },
       amount: { type: 'number' },
     };
@@ -103,10 +103,10 @@ class HomeController extends Controller {
       return;
     }
 
-    const { categoryName, type, amount } = ctx.request.body;
+    const { categoryId, type, amount } = ctx.request.body;
     // 校验分类是否存在
     const result = await Category.findOne({
-      where: { name: categoryName },
+      where: { id: categoryId },
     });
     if (!result) {
       ctx.body = { code: 1, message: '所选分类不存在！' };
@@ -115,7 +115,7 @@ class HomeController extends Controller {
     }
     // 创建账单
     await Bill.create({
-      category_name: categoryName,
+      category_name: result.name,
       type,
       amount,
       created_at: new Date(),

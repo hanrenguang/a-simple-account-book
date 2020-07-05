@@ -44,7 +44,8 @@
     "db:migrate:undo": "cross-env NODE_ENV=development npx sequelize db:migrate:undo",
     "db:migrate:undo:all": "cross-env NODE_ENV=development npx sequelize db:migrate:undo:all",
     "test:db:migrate": "cross-env NODE_ENV=test npx sequelize db:migrate",
-    "test:db:migrate:undo": "cross-env NODE_ENV=test npx sequelize db:migrate:undo"
+    "test:db:migrate:undo": "cross-env NODE_ENV=test npx sequelize db:migrate:undo",
+    "test:db:migrate:undo:all": "cross-env NODE_ENV=test npx sequelize db:migrate:undo:all"
   },
   "ci": {
     "version": "10"

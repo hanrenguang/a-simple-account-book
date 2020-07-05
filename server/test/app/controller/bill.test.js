@@ -63,7 +63,7 @@ describe('test/app/controller/bill.test.js', () => {
       const url = '/bill/createBill';
       // 正确传参
       const res1 = await app.httpRequest().post(url).send({
-        categoryName: '工资',
+        categoryId: 9,
         type: 1,
         amount: 10000,
       });
@@ -77,7 +77,7 @@ describe('test/app/controller/bill.test.js', () => {
 
       // 传入不存在的分类
       const res3 = await app.httpRequest().post(url).send({
-        categoryName: '不存在的分类',
+        categoryId: 100,
         type: 1,
         amount: 10000,
       });
