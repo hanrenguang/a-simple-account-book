@@ -32,6 +32,7 @@ class HomeController extends Controller {
     }
     const result = await Bill.findAndCountAll({
       where,
+      order: [[ 'created_at', 'DESC' ]],
       offset: (pageNum - 1) * pageSize,
       limit: pageSize,
     });
