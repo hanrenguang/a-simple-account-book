@@ -1,0 +1,18 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "account-book",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "account-book-test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00"
+  }
+}

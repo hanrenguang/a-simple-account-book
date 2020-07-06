@@ -1,0 +1,18 @@
+@import "./variable.scss";
+* {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: $background-color-default;
+}
+
+.positive {
+  color: $color-income;
+}
+
+.negative {
+  color: $color-expense;
+}
