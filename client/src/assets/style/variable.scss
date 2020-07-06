@@ -1,13 +1,8 @@
 /* 状态颜色 */
-$color-success: #53C947;
-$color-danger: #F95A5A;
 $color-income: #F1523A;
 $color-expense: #14BA89;
 $color-dark: #222222;
 $color-gray: #333333;
-
-/*border*/
-$border-radius: 2px;
 
 /*background*/
 $background-color-default: #F7F7F7; // 主背景色
@@ -17,12 +12,10 @@ $background-color-table: #FAFAFA;   // 表格背景色
 /*边框与内容边距*/
 $content-padding: 30px;
 
-/*tabset*/
-$tabset-item-padding: 15px;
-
 /*page*/
-$page-width: 850px;
+$page-width: 900px;
 $page-margin-top: 30px;
+$page-padding: 30px 15px;
 
-/*button*/
-$button-interval-width: 10px;
+/*form item*/
+$form-item-width: 190px;
