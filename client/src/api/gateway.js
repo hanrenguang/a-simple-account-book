@@ -5,7 +5,7 @@ const { Message } = ElementUI;
 
 const instance = axios.create({
   timeout: 10000,
-  baseURL: 'http://localhost:8080',
+  baseURL: 'http://localhost:7001',
 });
 
 class Gateway {
@@ -27,10 +27,11 @@ class Gateway {
   proxyRequest(method, url, payload, config) {
     return new Promise((resolve, reject) => {
       this.request(method, url, payload, config).then((res) => {
-        if (res.code !== 0) {
+        const { code, message } = res.data;
+        if (code !== 0) {
           Message.error({
             duration: 1000,
-            message: res.message || '接口请求错误，稍后重试',
+            message: message || '接口请求错误，稍后重试',
           });
           return;
         }
