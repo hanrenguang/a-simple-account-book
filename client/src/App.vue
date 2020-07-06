@@ -1,14 +1,11 @@
 <template>
   <div id="app">
-    <p class="title">
-      历史账单
-      <span class="date-range">
-        （{{ dateRange }}）
-      </span>
-    </p>
-    <billing-statistics></billing-statistics>
-    <billing-list></billing-list>
     <add-bill></add-bill>
+    <div class="history-bill-list-wrapper">
+      <p class="title">历史账单</p>
+      <billing-statistics></billing-statistics>
+      <billing-list></billing-list>
+    </div>
   </div>
 </template>
 
@@ -27,11 +24,6 @@ export default {
   data() {
     return {};
   },
-  computed: {
-    dateRange() {
-      return '2020.01 - 2020.06';
-    },
-  },
 };
 </script>
 
@@ -42,8 +34,13 @@ export default {
   margin: $page-margin-top auto 0;
   color: $color-gray;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  .history-bill-list-wrapper {
+    padding: $page-padding;
+    background-color: $background-color-white;
+    overflow: hidden;
+  }
   .title {
-    padding-bottom: 20px;
+    padding-bottom: 25px;
     font-size: 18px;
     font-weight: 500;
     color: $color-dark;
